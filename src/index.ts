@@ -1,6 +1,3 @@
-import { strict } from "assert";
-import { stringify } from "querystring";
-import { TextDecoder } from "util";
 
 let a = 123n;
 
@@ -27,7 +24,7 @@ function Filter1<T extends string | number>(array: T[], f: (item: T) => boolean)
     return array.filter((val) => f(val))
 }
 
-Filter1([1, 2, 3, true], () => true)
+Filter1([1, 2, 3], () => true)
 
 interface Filter2 {
     <T>(array: T[], f: (item: T) => boolean): T[];
@@ -46,7 +43,7 @@ let filter2: Filter2 = (array, f) => array.filter((val) => f(val));
 filter(names, _ => _.firstName.startsWith('b'));
 // filter([])
 
-let nums: Array<number> = [1, 2, 3, 4];
+let nums: number[] = [1, 2, 3, 4];
 
 // let list<T
 
